@@ -196,6 +196,15 @@ Vue.createApp({
       //   alert(err.response.data.message);
       // });
     },
+    deleteAllCarts(){
+      this.loadingEffect()
+      axios({
+        method: 'delete',
+        url: `${apiUrl}/api/${apiPath}/carts`,
+      }).then(res => {
+        this.getCarts()
+      })
+    }
   },
   components: {
     productModal,
